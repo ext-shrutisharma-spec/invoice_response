@@ -21,10 +21,7 @@ if (!userEmail) {
     <!-- Header -->
     <div class="form-header">
       <div class="logo-box">
-        <img
-          src="https://pnghdpro.com/wp-content/themes/pnghdpro/download/social-media-and-brands/zepto-logo-app-icon.png"
-          alt="Invoice Logo"
-        />
+        <img src="https://pnghdpro.com/wp-content/themes/pnghdpro/download/social-media-and-brands/zepto-logo-app-icon.png" alt="Invoice Logo">
       </div>
       <h1>Rental Invoice</h1>
       <p>Logged in as <b id="userEmail"></b></p>
@@ -41,119 +38,87 @@ if (!userEmail) {
 
         <!-- Invoice Period -->
         <div class="form-section">
-          <div class="section-title">📅 Invoice Period</div>
+          <div class="section-title"><i class="icon">📅</i> Invoice Period</div>
           <div class="form-row">
             <div class="form-group">
               <label class="form-label required">Rent Start Month</label>
-              <input
-                type="month"
-                id="rentStart"
-                name="rentStart"
-                class="form-input"
-                required
-              />
+              <input type="month" id="rentStart" class="form-input" required>
             </div>
             <div class="form-group">
               <label class="form-label required">Rent End Month</label>
-              <input
-                type="month"
-                id="rentEnd"
-                name="rentEnd"
-                class="form-input"
-                required
-              />
+              <input type="month" id="rentEnd" class="form-input" required>
             </div>
           </div>
         </div>
 
         <!-- Tenant Details -->
         <div class="form-section">
-          <div class="section-title">👤 Tenant Details</div>
-
+          <div class="section-title"><i class="icon">👤</i> Tenant Details</div>
           <div class="form-group">
             <label class="form-label required">Name on Invoice</label>
-            <input
-              type="text"
-              id="invoiceName"
-              name="invoiceName"
-              class="form-input"
-              placeholder="Full Name"
-              required
-            />
+            <input type="text" id="invoiceName" class="form-input" placeholder="Full Name" required>
           </div>
+      
+  
+<div class="form-row">
+  <!-- Mobile Number -->
+  <div class="form-group" style="flex: 1; margin-right: 10px;">
+    <label class="form-label required">Mobile Number</label>
+    <input
+      id="mobile"
+      type="tel"
+      class="form-input"
+      placeholder="Enter mobile number"
+      required
+    >
+  </div>
 
-          <div class="form-row">
-            <!-- Mobile -->
-            <div class="form-group" style="flex:1; margin-right:10px;">
-              <label class="form-label required">Mobile Number</label>
-              <input
-                id="mobile"
-                name="mobile"
-                type="tel"
-                class="form-input"
-                placeholder="Enter mobile number"
-                required
-              />
-            </div>
+  <!-- GST Type -->
+  <div class="form-group" style="flex: 1;">
+    <label class="form-label required">GST Type</label>
+    <select id="gstType" class="form-input" required>
+      <option value="">Select GST Type</option>
+      <option value="GST">GST</option>
+      <option value="Non-GST">Non-GST</option>
+    </select>
+  </div>
+</div>
 
-            <!-- GST Type -->
-            <div class="form-group" style="flex:1;">
-              <label class="form-label required">GST Type</label>
-              <select
-                id="gstType"
-                name="gstType"
-                class="form-input"
-                required
-              >
-                <option value="">Select GST Type</option>
-                <option value="GST">GST</option>
-                <option value="Non-GST">Non-GST</option>
-              </select>
-            </div>
-          </div>
 
           <div class="form-group">
             <label class="form-label required">Rental Property City</label>
-            <input
-              type="text"
-              id="city"
-              name="city"
-              class="form-input"
-              placeholder="City Name"
-              required
-            />
+            <input type="text" id="city" class="form-input" placeholder="City Name" required>
           </div>
         </div>
 
         <!-- Invoice Type -->
         <div class="form-section">
-          <div class="section-title">💰 Invoice Type</div>
+          <div class="section-title"><i class="icon">💰</i> Invoice Type</div>
+         <div class="expense-grid">
+  <label>
+    <input type="checkbox" id="typeRent" value="Rent"> Rent
+  </label>
+  <label>
+    <input type="checkbox" id="typeMaintenance" value="Maintenance"> Maintenance
+  </label>
+  <label>
+    <input type="checkbox" id="typeWater" value="Water"> Water
+  </label>
+  <label>
+    <input type="checkbox" id="typeParking" value="Parking"> Parking
+  </label>
+  <label>
+    <input type="checkbox" id="typeElectricity" value="Electricity"> Electricity
+  </label>
+</div>
 
-          <div class="expense-grid">
-            <label>
-              <input type="checkbox" id="typeRent" value="Rent" /> Rent
-            </label>
-            <label>
-              <input type="checkbox" id="typeMaintenance" value="Maintenance" /> Maintenance
-            </label>
-            <label>
-              <input type="checkbox" id="typeWater" value="Water" /> Water
-            </label>
-            <label>
-              <input type="checkbox" id="typeParking" value="Parking" /> Parking
-            </label>
-            <label>
-              <input type="checkbox" id="typeElectricity" value="Electricity" /> Electricity
-            </label>
-          </div>
         </div>
 
         <!-- File Upload -->
         <div class="form-section">
-          <div class="section-title">📎 Upload Invoices</div>
-
+          <div class="section-title"><i class="icon">📎</i> Upload Invoices</div>
           <div class="form-group file-input-wrapper">
-            <input type="file" id="attachments" multiple />
+            <input type="file" id="attachments" multiple required>
             <label for="attachments" class="file-label">
               <span class="file-icon">📂</span>
               Click to upload invoices
@@ -164,16 +129,13 @@ if (!userEmail) {
 
         <!-- Buttons -->
         <div class="button-group">
-          <button id="submitBtn" type="submit" class="btn btn-primary">
-            Submit Invoice
-          </button>
+          <button type="submit" class="btn btn-primary">Submit Invoice</button>
         </div>
 
         <!-- Loader & Messages -->
         <div class="loader" id="loader">
           <span class="spinner"></span> Submitting...
         </div>
-
         <div class="success-message" id="successMsg"></div>
         <div class="error-message" id="errorMsg"></div>
 
@@ -186,133 +148,112 @@ if (!userEmail) {
 
 
 
+
+
 <script>
-/***************************************
- * CONFIG (USE NETLIFY FUNCTION)
- ***************************************/
-const API_URL = "/.netlify/functions/submitInvoice";
+const API_URL = "https://script.google.com/macros/s/AKfycbwiFosaHFWZix-14eTjkgLTTwHz0_ek3xDmcY3--wqGqNkt207_5PTzkBDEqPwhJXJY/exec";
+document.getElementById("userEmail").innerText = localStorage.getItem("loggedUserEmail");
 
-/***************************************
- * USER INFO
- ***************************************/
-document.getElementById("userEmail").innerText =
-  localStorage.getItem("loggedUserEmail");
-
-/***************************************
- * LOGOUT
- ***************************************/
+/* LOGOUT */
 document.getElementById("logoutBtn").onclick = () => {
-  localStorage.clear();
-  window.location.href = "login.html";
+    localStorage.clear();
+    window.location.href = "login.html";
 };
 
-/***************************************
- * FORM VALIDATION
- ***************************************/
 function validateForm(event) {
-  event.preventDefault();
-  submitForm();
+    event.preventDefault();
+    submitForm();
 }
 
-/***************************************
- * SUBMIT FORM
- ***************************************/
 async function submitForm() {
 
-  const loggedEmail = localStorage.getItem("loggedUserEmail");
-  if (!loggedEmail) {
-    alert("Session expired. Please login again.");
-    window.location.href = "login.html";
-    return;
-  }
-
-  const successBox = document.getElementById("successMsg");
-  const errorBox = document.getElementById("errorMsg");
-  const loader = document.getElementById("loader");
-
-  successBox.innerText = "";
-  errorBox.innerText = "";
-
-  loader.style.display = "flex";
-
-  const files = Array.from(document.getElementById("attachments").files);
-
-  const base64Files = await Promise.all(
-    files.map(file => {
-      return new Promise(resolve => {
-        const reader = new FileReader();
-        reader.onload = () => resolve(reader.result);
-        reader.readAsDataURL(file);
-      });
-    })
-  );
-
-  const invoiceTypes = [];
-  ["typeRent","typeMaintenance","typeWater","typeParking","typeElectricity"]
-    .forEach(id => {
-      const el = document.getElementById(id);
-      if (el.checked) invoiceTypes.push(el.value);
-    });
-
-  if (invoiceTypes.length === 0) {
-    loader.style.display = "none";
-    alert("Select at least one invoice type");
-    return;
-  }
-
-  const payload = {
-    submittedBy: loggedEmail,
-    rentStart: document.getElementById("rentStart").value,
-    rentEnd: document.getElementById("rentEnd").value,
-    invoiceName: document.getElementById("invoiceName").value,
-    mobile: document.getElementById("mobile").value,
-    gstType: document.getElementById("gstType").value,
-    invoiceTypes,
-    city: document.getElementById("city").value,
-    attachments: files.map((f, i) => ({
-      name: f.name,
-      mimeType: f.type,
-      base64: base64Files[i]
-    }))
-  };
-
-  try {
-    const res = await fetch(API_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(payload)
-    });
-
-    if (!res.ok) throw new Error("Server error");
-
-    const result = await res.json();
-
-    loader.style.display = "none";
-
-    if (result.success || result.status === "success") {
-      successBox.innerText = "Form submitted successfully!";
-      document.getElementById("rentalForm").reset();
-      document.getElementById("fileCount").innerText = "No files selected";
-
-      setTimeout(() => {
-        successBox.innerText = "";
-      }, 3000);
-    } else {
-      errorBox.innerText = result.message || "Submission failed";
+    const loggedEmail = localStorage.getItem("loggedUserEmail");
+    if (!loggedEmail) {
+        alert("Session expired. Please login again.");
+        window.location.href = "login.html";
+        return;
     }
 
-  } catch (err) {
-    console.error(err);
-    loader.style.display = "none";
-    errorBox.innerText = "Network error. Please try again.";
-  }
+    const successBox = document.getElementById("successMsg");
+    const errorBox = document.getElementById("errorMsg");
+    const loader = document.getElementById("loader");
+
+    // Clear previous messages
+    successBox.innerText = "";
+    errorBox.innerText = "";
+
+    // Show loader
+    loader.style.display = "flex";
+
+    const files = Array.from(document.getElementById("attachments").files);
+
+    const base64Files = await Promise.all(files.map(file => {
+        return new Promise(resolve => {
+            const reader = new FileReader();
+            reader.onload = () => resolve(reader.result);
+            reader.readAsDataURL(file);
+        });
+    }));
+
+   const invoiceTypes = [];
+["typeRent","typeMaintenance","typeWater","typeParking","typeElectricity"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el.checked) {
+        invoiceTypes.push(el.value);
+    }
+});
+
+
+    if (invoiceTypes.length === 0) {
+        loader.style.display = "none";
+        alert("Select at least one invoice type");
+        return;
+    }
+
+    const payload = {
+        submittedBy: loggedEmail,
+        rentStart: document.getElementById("rentStart").value,
+        rentEnd: document.getElementById("rentEnd").value,
+        invoiceName: document.getElementById("invoiceName").value,
+        mobile: document.getElementById("mobile").value,
+        gstType: document.getElementById("gstType").value,
+        invoiceTypes: invoiceTypes,
+        city: document.getElementById("city").value,
+        attachments: files.map((f, i) => ({
+            name: f.name,
+            mimeType: f.type,
+            base64: base64Files[i]
+        }))
+    };
+
+    try {
+        const res = await fetch(API_URL, {
+            method: "POST",
+            body: JSON.stringify(payload)
+        });
+
+        const result = await res.json();
+
+        // Hide loader
+        loader.style.display = "none";
+
+        if (result.status === "success") {
+            successBox.innerText = "Form submitted successfully!";
+            document.getElementById("rentalForm").reset();
+            document.getElementById("fileCount").innerText = "No files selected";
+            setTimeout(() => {
+                successBox.innerText = "";
+            }, 3000);
+        } else {
+            errorBox.innerText = "Error: " + result.message;
+        }
+    } catch (err) {
+        loader.style.display = "none";
+        errorBox.innerText = "Network error. Please try again.";
+    }
 }
 
-/***************************************
- * FILE COUNTER
- ***************************************/
+// File counter update
 const fileInput = document.getElementById("attachments");
 const fileCount = document.getElementById("fileCount");
 
@@ -322,6 +263,7 @@ fileInput.addEventListener("change", () => {
     : "No files selected";
 });
 </script>
+
 
 
 

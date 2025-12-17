@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="login-wrapper">
+
+  <!-- Header -->
+  <div class="login-header">
+    <div class="logo-box">
+      <!-- optional logo -->
+      <!-- <img src="logo.png" alt="Logo"> -->
+    </div>
+    <h1>Welcome Back</h1>
+    <p>Please login to continue</p>
+  </div>
+
+  <!-- Body -->
+  <div class="login-body">
+
+    <div class="form-group">
+      <label class="form-label required">Email Address</label>
+      <input
+        id="email"
+        type="email"
+        class="form-input"
+        placeholder="you@example.com"
+        required
+      >
+    </div>
+
+    <div class="form-group">
+      <label class="form-label required">Password</label>
+      <input
+        id="password"
+        type="password"
+        class="form-input"
+        placeholder="Enter your password"
+        required
+      >
+    </div>
+
+    <button class="btn btn-primary" onclick="login()">
+      Login
+    </button>
+
+    <div id="error" class="error-message"></div>
+
+    <p class="info">
+      Authorized users only
+    </p>
+
+  </div>
+</div>
+
+
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbwiFosaHFWZix-14eTjkgLTTwHz0_ek3xDmcY3--wqGqNkt207_5PTzkBDEqPwhJXJY/exec";
+
+// Clear old session on login page load
+localStorage.clear();
+
+async function login() {
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const errorBox = document.getElementById("error");
+
+    if (!email || !password) {
+        errorBox.innerText = "Enter email and password";
+        return;
+    }
+
+    try {
+        const res = await fetch(`${API_URL}?login=1&email=${email}&password=${password}`);
+        const data = await res.json();
+
+        if (data.status === "success") {
+            localStorage.setItem("loggedUserEmail", data.email);
+            localStorage.setItem("loggedUserName", data.name);
+            window.location.href = "index.html";
+        } else {
+            errorBox.innerText = "Invalid email or password";
+        }
+    } catch (err) {
+        errorBox.innerText = "Server error. Try again.";
+    }
+}
+</script>
+
+</body>
+</html>
